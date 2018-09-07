@@ -1,0 +1,8 @@
+config/
+*.pyc
+*.pem
+*.key
+*.crt
+secrets.*
+data/
+log/

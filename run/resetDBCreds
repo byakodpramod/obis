@@ -1,0 +1,11 @@
+#!/bin/bash
+
+docker stop obis_mongo
+
+docker run -it --rm \
+  -v obis_mongodata:/data/db:z \
+  -v /Users/byakodpramod/ga_dir/obis/config/config.sh:/config.sh \
+  -v /Users/byakodpramod/ga_dir/obis/config/addmongouser:/addmongouser \
+  --entrypoint /addmongouser mongo
+
+docker start obis_mongo
