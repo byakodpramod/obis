@@ -4,8 +4,12 @@ from rest_framework_csv.renderers import CSVRenderer
 from obis.filters import AcctaxFilter,ComtaxFilter #,SearchViewFilter
 from obis.models import Acctax,Comtax,Syntax,Hightax,FedStatus,StStatus,OkSwap,RankChange
 from obis.models import Occurrence,Source,Institution,County,CoTrs,IdentificationVerification
-from obis.models import SpatialRefSys #, VwSearch, VwSearchmv #SearchView
-from serializer import AcctaxSerializer,ComtaxSerializer, SourceSerializer
+from obis.models import *
+#SpatialRefSys #, VwSearch, VwSearchmv #SearchView
+from serializer import *
+from rest_framework import permissions
+from rest_framework.parsers import JSONParser,MultiPartParser,FormParser,FileUploadParser
+
 
 #DB Table ViewSet Class
 class obisTableViewSet(viewsets.ModelViewSet):
@@ -24,7 +28,9 @@ class AcctaxViewSet(obisTableViewSet):
     """
     model = Acctax
     queryset = Acctax.objects.all()
-    #serializer_class = AcctaxSerializer
+    serializer_class = AcctaxSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
     filter_class = AcctaxFilter
     search_fields = ("sname","scientificnameauthorship","genus","species","subspecies","variety",
                      "forma","elcode","iucncode","g_rank","s_rank","nativity","source","usda_code",
@@ -73,6 +79,9 @@ class HightaxViewSet(obisTableViewSet):
     """
     model = Hightax
     queryset = Hightax.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = HightaxSerializer
 
 class FedStatusViewSet(obisTableViewSet):
     """
