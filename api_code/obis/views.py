@@ -53,8 +53,10 @@ class ComtaxViewSet(obisTableViewSet):
     This is the Comtax ViewSet with hyperlinked tables.
     """
     model = Comtax
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
     queryset = Comtax.objects.all()
-    #serializer_class =  ComtaxSerializer
+    serializer_class =  ComtaxSerializer
     filter_class = ComtaxFilter
     search_fields = ('acode','vernacularname','primary_name')
 
@@ -63,7 +65,10 @@ class SyntaxViewSet(obisTableViewSet):
     This is the Syntax ViewSet with hyperlinked tables.
     """
     model = Syntax
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
     queryset = Syntax.objects.all()
+    serializer_class =  SyntaxSerializer
     search_fields = ('acode','scode','sname','scientificnameauthorship',
                     'family','genus','species','subspecies','variety',
                     'name','sspscientificnameauthorship','varscientificnameauthorship',

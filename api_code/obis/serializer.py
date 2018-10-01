@@ -11,9 +11,10 @@ class AcctaxSerializer(serializers.HyperlinkedModelSerializer):
 	fields = ('url','a_id','acode','sname','scientificnameauthorship','family','genus','species','subspecies','variety','forma','elcode','gelcode','iucncode','g_rank','s_rank','nativity','source','usda_code','tsn','fed_status','st_status','swap','scientificname','sspscientificnameauthorship','varscientificnameauthorship','formascientificnameauthorship','tracked')
 
 class ComtaxSerializer(serializers.HyperlinkedModelSerializer): #ModelSerializer):
+    primary_name = serializers.CharField(source='primary_name')
     class Meta:
         model= Comtax
-#        fields = ['url','acode','vernacularname']
+        fields = ['url','c_id','acode','vernacularname','primary_name']
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -26,3 +27,8 @@ class HightaxSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
          model = Hightax
          fields = ('url','kingdom','phylum','taxclass','taxorder','family','category')
+
+class SyntaxSerializer(serializers.HyperlinkedModelSerializer):    
+     class Meta:
+         model = Syntax
+         fields = ('url','s_id','acode','scode','sname','scientificnameauthorship','family','genus','species','subspecies','variety','scientificname','sspscientificnameauthorship','varscientificnameauthorship','formascientificnameauthorship','tsn')
