@@ -94,6 +94,9 @@ class FedStatusViewSet(obisTableViewSet):
     """
     model = FedStatus
     queryset = FedStatus.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = FedStatusSerializer
 
 class StStatusViewSet(obisTableViewSet):
     """
@@ -101,6 +104,9 @@ class StStatusViewSet(obisTableViewSet):
     """
     model = StStatus
     queryset = StStatus.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = StStatusSerializer
 
 class OkSwapViewSet(obisTableViewSet):
     """
@@ -108,6 +114,9 @@ class OkSwapViewSet(obisTableViewSet):
     """
     model = OkSwap
     queryset = OkSwap.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = OkSwapSerializer
 
 class OccurrenceViewSet(obisTableViewSet):
     """
@@ -115,6 +124,9 @@ class OccurrenceViewSet(obisTableViewSet):
     """
     model = Occurrence
     queryset = Occurrence.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = OccurenceSerializer
 
 class SourceViewSet(obisTableViewSet):
     """
@@ -122,7 +134,10 @@ class SourceViewSet(obisTableViewSet):
     """
     model = Source
     queryset = Source.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
     serializer_class = SourceSerializer
+
 class InstitutionViewSet(obisTableViewSet):
     """
     This is the Institution  ViewSet with hyperlinked tables.
@@ -157,6 +172,7 @@ class RankChangeViewSet(obisTableViewSet):
     """
     model = RankChange
     queryset = RankChange.objects.all()
+
 class SpatialRefSysViewSet(obisTableViewSet):
     """
     This is the Spatial-Ref-Sys  ViewSet with hyperlinked tables.
@@ -186,7 +202,6 @@ class VwSearchmvViewSet(obisViewViewSet):
     This is the Material View Search ViewSet with hyperlinked tables.
     Database: When data updated must run to update view: 'REFRESH MATERIALIZED VIEW vm_search_mv;'
     ""
-
     model = VwSearchmv
     queryset = VwSearchmv.objects.all()
     search_fields = ('acode', 'elcode', 'family', 'fed_status_id', 'forma', 'formascientificnameauthorship',

@@ -32,3 +32,23 @@ class SyntaxSerializer(serializers.HyperlinkedModelSerializer):
      class Meta:
          model = Syntax
          fields = ('url','s_id','acode','scode','sname','scientificnameauthorship','family','genus','species','subspecies','variety','scientificname','sspscientificnameauthorship','varscientificnameauthorship','formascientificnameauthorship','tsn')
+
+class OccurenceSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+	 model = Occurrence
+	 fields = ('url','resourcetype','gid','acode','eventdate','recordedby','county','locality','behavior','habitat','sex','lifestage','associatedtaxa','verbatimelevation','depth','depthaccuracy','individualcount','occurrenceremarks','taxonremarks','institutioncode','basisofrecord','catalognumber','othercatalognumbers','typestatus','recordnumber','samplingprotocol','preparations','primary_data','bibliographiccitation','datasetname','coordinateprecision','decimallatitude','decimallongitude','geodeticdatum','georeferencedby','georeferenceddate','georeferenceremarks','georeferencesources','georeferenceverificationstatus','geom','problem_with_record','previousidentifications','identificationverificationstatus','datelastmodified','associatedoccurrences','associatedsequences','entby','entrydate','obs_gid','mtr','township','ns','range','ew','section','quarter','zone','utme','utmn','hiderecord','hiderecordcomment','relationshipremarks','informationwitheld','awaitingreview','occurrenceid')
+
+class FedStatusSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+	 model = FedStatus
+	 fields = ('url','status_id','status','description')
+
+class StStatusSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+	 model = StStatus
+         fields = ('url','status_id','status','description')
+
+class OkSwapSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = OkSwap
+         fields = ('url','swap_id','tier','description')
