@@ -52,3 +52,33 @@ class OkSwapSerializer(serializers.HyperlinkedModelSerializer):
      class Meta:
          model = OkSwap
          fields = ('url','swap_id','tier','description')
+
+class InstitutionSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = Institution
+         fields = ('url','institutioncode','institution','curator','email','telephone','address','city','state','country','zipcode','institutiontype','link')
+
+class CountySerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = County
+         fields = ('url','county','fips')
+
+class IdentificationVerificationSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = IdentificationVerification
+         fields = ('url','pkey','catalognumber','identifiedby','identificationremarks','datalastmodified','identifiedacode','gid')
+
+class CoTrsSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = CoTrs
+         fields = ('url','gid','name','geom','trs')
+
+class RankChangeSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = RankChange
+         fields = ('url','r_id','acode','previous_s_rank','s_rank','changedby','rankremarks','datelastmodified','previousdatemodified')
+
+class SpatialRefSysSerializer(serializers.HyperlinkedModelSerializer):
+     class Meta:
+         model = SpatialRefSys
+         fields = ('url','srid','auth_name','auth_srid','srtext','proj4text')

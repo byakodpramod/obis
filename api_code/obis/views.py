@@ -144,6 +144,9 @@ class InstitutionViewSet(obisTableViewSet):
     """
     model = Institution
     queryset = Institution.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = InstitutionSerializer
 
 class CountyViewSet(obisTableViewSet):
     """
@@ -151,6 +154,9 @@ class CountyViewSet(obisTableViewSet):
     """
     model = County
     queryset = County.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = CountySerializer
 
 class CoTrsViewSet(obisTableViewSet):
     """
@@ -158,6 +164,9 @@ class CoTrsViewSet(obisTableViewSet):
     """
     model = CoTrs
     queryset = CoTrs.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = CoTrsSerializer
 
 class IdentificationVerificationViewSet(obisTableViewSet):
     """
@@ -165,6 +174,9 @@ class IdentificationVerificationViewSet(obisTableViewSet):
     """
     model = IdentificationVerification
     queryset = IdentificationVerification.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = IdentificationVerificationSerializer
 
 class RankChangeViewSet(obisTableViewSet):
     """
@@ -172,6 +184,9 @@ class RankChangeViewSet(obisTableViewSet):
     """
     model = RankChange
     queryset = RankChange.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = RankChangeSerializer
 
 class SpatialRefSysViewSet(obisTableViewSet):
     """
@@ -179,6 +194,9 @@ class SpatialRefSysViewSet(obisTableViewSet):
     """
     model = SpatialRefSys
     queryset = SpatialRefSys.objects.all()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    renderer_classes = (BrowsableAPIRenderer, JSONRenderer,JSONPRenderer,XMLRenderer,YAMLRenderer)
+    serializer_class = SpatialRefSysSerializer
 
 #***************************************** OBIS DB Views ********************************************************
 """
